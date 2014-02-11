@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link href="../static/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/jasny-bootstrap.css" rel="stylesheet">
+    <link href="../static/css/custom_cover.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+  	<div class="input-group">
+  		<input type="file" name="hidden-upload" id="hidden-upload" onchange="updateFileName(this)">
+
+  		<input id="filename" type="text" class="form-control" placeholder="Upload your .tsv file" readonly>
+  		<span class="input-group-btn"><button type="button" class="btn btn-default" onClick="browseFile()">Browse</button></span>
+  	</div>
+
+  	<script>
+  		function browseFile() {
+  			$('#hidden-upload').click();
+  			//$('#filename').val("ol");
+  		};
+
+  		function updateFileName(obj) {
+  			$('#filename').val((obj.value).replace("C:\\fakepath\\", ""));
+  		}
+  	</script>
+  
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/bower_components/jquery/jquery.min.js"></script>
+    <script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap-filestyle.js"></script>
+        <script src="../static/jasny-bootstrap.js"></script>
+  </body>
+</html>

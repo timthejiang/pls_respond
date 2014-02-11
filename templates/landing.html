@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link href="../static/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/cover.css" rel="stylesheet">
+    <link href="../static/css/custom_cover.css" rel="stylesheet">
+    <link href="../static/jasny-bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    
+    <div class="site-wrapper">
+      
+      <div class="site-wrapper-inner">
+      
+        <div class="cover-container">
+        
+          <div class="masthead clearfix">
+            
+            
+            <h1 class="cover-heading"><font size="50px">pls respond</font></h1>
+          </div>
+
+           <p class="lead" id="descript">Cover is a one-page template.</p>
+
+          <div class="inner cover">
+          
+          <p class="lead">
+
+            
+            <div class="input-group">
+              
+              <input type="file" name="hidden-upload" id="hidden-upload" onchange="updateFileName(this)">
+              
+              <div class=".col-xs-5">
+              <input id="filename" type="text" class="form-control" placeholder="Upload your .tsv file" onclick="browseFile()" readonly>
+              </div>
+
+              <span class="input-group-btn"><button type="button" class="btn btn-default" onClick="browseFile()">Browse</button></span>
+            </div>
+          
+
+    <script>
+      function browseFile() {
+        $('#hidden-upload').click();
+      };
+
+      function updateFileName(obj) {
+        $('#filename').val((obj.value).replace("C:\\fakepath\\", ""));
+      }
+    </script>
+          </p>
+
+          
+
+
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-default">pls generate</a>
+            </p>
+          </div>
+          
+          <div class="mastfoot">
+            <div class="inner">
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="http://127.0.0.1:5000/landing">Home</a></li>
+                <li><a href="#">About</a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+        
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/bower_components/jquery/jquery.min.js"></script>
+    <script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap-filestyle.js"></script>
+        <script src="../static/jasny-bootstrap.js"></script>
+  </body>
+</html>
