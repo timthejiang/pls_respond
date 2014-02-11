@@ -1,0 +1,34 @@
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: center;
+  }
+}
+
+.cover-heading{
+  padding: 40px 20px 0px 0px; /*top right bottom left*/
+}
+
+#descript {
+	padding: 0px 0px 150px;
+}
+
+#file-name {
+	padding-right:0px;
+}
+
+#upload-button {
+	
+}
+
+
+#submit-button {
+	padding: 0px 0px 150px;
+}
+
+#hidden-upload {
+	display:none;
+}
+
