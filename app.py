@@ -17,9 +17,6 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 #launch
 if __name__ == '__main__':
-  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-  sock.bind(('localhost', 0)) #binding to port 0 makes the OS choose an available port between 1024 and 65535
-  port = sock.getsockname()[1]
   app.run()
   
   
