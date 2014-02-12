@@ -10,6 +10,14 @@ app.debug = True
 @app.route('/')
 def index():
   return 'pls respond'
+  
+@app.route('/landing')
+def landing():
+  return render_template('landing.html');
+
+@app.route('/test')
+def test():
+	return render_template('test.html');
         
 # set the secret key.  keep this really secret:
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
