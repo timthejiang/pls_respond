@@ -1,1 +1,1 @@
-pls.py is the script, ignore the other python files in root
+pls.py is the script, ignore other python files in root
