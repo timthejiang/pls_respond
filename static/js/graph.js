@@ -9,10 +9,6 @@ var parseFullDate = d3.time.format("%m/%d/%Y %H:%M:%S %p").parse;
 //var parseMonthDate = d3.time.format("%m/%Y").parse;
 
 var filter = "";
-<<<<<<< HEAD
-=======
-alert("should work");
->>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
 function group(data, grouper){
     return d3.nest()
         .key(grouper)
@@ -29,13 +25,7 @@ function group(data, grouper){
 }
 
 //d3.tsv(&quot;{{filename}}&quot;, function(error, data) {
-<<<<<<< HEAD
 d3.tsv('/static/tsv.tsv', function(error, data) {
-=======
-d3.tsv('tsv.tsv', function(error, data) {
-        alert({{filename}});
-        alert("hihih");
->>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
         data = data.filter(function(response){
             return response.Content.toLowerCase().indexOf(filter) != -1;
         });
