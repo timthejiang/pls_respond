@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename
 
-from gi.repository import GLib
+#from gi.repository import GLib
 
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/static'
 #GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD) + '/pls_respond_uploaded'
