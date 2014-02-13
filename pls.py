@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+app.config['ALLOWED_EXTENSIONS'] = set(['tsv'])
 
 
 def allowed_file(filename):
@@ -37,13 +37,20 @@ def upload():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         # Redirect the user to the uploaded_file route, which
         # will basicaly show on the browser the uploaded file
-        return redirect(url_for('uploaded_file',
-                                filename=filename))
+        return redirect(url_for('uploaded_file',filename=filename))
 
+#gets file from local directory
 @app.route(UPLOAD_FOLDER + '/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
+    return filename
+
+def file_into_html(file):
+    return render_template('landing.html', send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename))
+
+@app.route('/test')
+def test():
+    return render_template('jquery_test.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -51,5 +58,5 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(
-        debug=True
+        debug = True
     )

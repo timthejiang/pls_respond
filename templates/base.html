@@ -29,34 +29,7 @@
            
 
           <div class="inner cover" id="main-div">
-          <p class="lead" id="descript"></p>
-          <p class="lead">
-            <h4 id="descript">See a visualization of your email response times</h4>
-
-            <!--Form Begin-->
-            <form action="upload" method="post" class="form-inline" role="form" id="upload-form" enctype="multipart/form-data">
-
-              <input type="file" name="hidden-upload" id="hidden-upload" onchange="updateFileName(this)">
-              <!-- another half decent input design: class=button, inside p class="lead" -->
-            </form>
-            <!--Form End-->
-
-            <div class="form-inline">
-              <div class="form-group has-feedback" id="validation-state">
-                <input id="filename" type="text" class="form-control" placeholder="Upload your .tsv file" onclick="browseFile()" size="40" readonly>
-                <span class="" id="validation-glyph"></span>
-              </div>
-
-              <button type="submit" class="btn btn-default" id="upload-button" onClick="browseFile()">Browse</button>
-            </div>
-            
-            
-
-          </p>
-
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default" id="generate-button" disabled onclick="upload()">pls generate</a>
-            </p>
+  
 
 
           </div>
@@ -64,7 +37,7 @@
           <div class="mastfoot">
             <div class="inner">
               <ul class="nav masthead-nav">
-                <li class="active"><a href="/">Home</a></li>
+                <li class=""><a href="/">Home</a></li>
                 <!-- <li><a href="javascript:void();" id="about-href">About</a></li> -->
               </ul>
             </div>
