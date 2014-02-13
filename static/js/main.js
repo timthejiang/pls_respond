@@ -14,6 +14,8 @@ function browseFile() {
           var ext = $('#hidden-upload').val().split('.').pop().toLowerCase();
           if($.inArray(ext, ['tsv']) == -1) {
             $(document).ready(function() {
+              $('#generate-button').attr('disabled', true);
+              $('#filename').val("");
               $('#filename').attr('placeholder', ".tsv files only!");
               $('#validation-state').attr('class', 'form-group has-warning has-feedback glowing-border-warning');
               $('#validation-glyph').attr('class', 'glyphicon glyphicon-warning-sign form-control-feedback');

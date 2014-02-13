@@ -4,7 +4,8 @@ from werkzeug import secure_filename
 
 from gi.repository import GLib
 
-UPLOAD_FOLDER = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD) + '/pls_respond_uploaded'
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/templates'
+#GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD) + '/pls_respond_uploaded'
 
 # Initialize
 app = Flask(__name__)
@@ -13,6 +14,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['ALLOWED_EXTENSIONS'] = set(['tsv'])
 
+fname = None
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -37,20 +39,27 @@ def upload():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         # Redirect the user to the uploaded_file route, which
         # will basicaly show on the browser the uploaded file
-        return redirect(url_for('uploaded_file',filename=filename))
+        global fname 
+        fname = filename
+        return redirect(url_for('uploaded_file' ,filename=filename))
 
 #gets file from local directory
-@app.route(UPLOAD_FOLDER + '/<filename>')
+@app.route('/alltime/<filename>')
 def uploaded_file(filename):
-    return filename
+  return render_template('index.html', filename=filename)
 
-def file_into_html(file):
-    return render_template('landing.html', send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename))
+#def file_into_html(file):
+    #return render_template('landing.html', file=send_from_directory(app.config['UPLOAD_FOLDER'], filename))
 
-@app.route('/test')
+@app.route('/alltime')
 def test():
-    return render_template('jquery_test.html')
+    global fname
+    return render_template('index.html', filename=fname)
+
+@app.route('/weekly')
+def test2():
+    global fname
+    return render_template('bar_index.html', filename=fname)
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -58,5 +67,7 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(
+        #host='0.0.0.0',
+        #port=int("8000"),
         debug = True
     )
