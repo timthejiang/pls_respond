@@ -1,1 +1,1 @@
-pls.psy is the script
+pls.py is the script
