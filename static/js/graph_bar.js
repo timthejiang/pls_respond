@@ -176,7 +176,11 @@ function type(d) {
 
 //actually do stuff
 //d3.tsv(&quot;{{filename}}&quot;, type, function(error, data) {
+<<<<<<< HEAD
 d3.tsv('/static/tsv.tsv', type, function(error, data) {
+=======
+d3.tsv('tsv.tsv', type, function(error, data) {
+>>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
     data.forEach(function(d) {
         var localDate = new Date(d.date * 1000);
         d.day = localDate.getDay();

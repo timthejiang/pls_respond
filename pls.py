@@ -4,7 +4,11 @@ from werkzeug import secure_filename
 
 from gi.repository import GLib
 
+<<<<<<< HEAD
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/static'
+=======
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/templates'
+>>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
 #GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD) + '/pls_respond_uploaded'
 
 # Initialize
@@ -40,6 +44,7 @@ def upload():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         # Redirect the user to the uploaded_file route, which
         # will basicaly show on the browser the uploaded file
+<<<<<<< HEAD
         
         return redirect(url_for('uploaded_file'))
 
@@ -47,13 +52,35 @@ def upload():
 @app.route('/alltime')
 def uploaded_file():
   return render_template('index.html')
+=======
+        global fname 
+        fname = filename
+        return redirect(url_for('uploaded_file' ,filename=filename))
+
+#gets file from local directory
+@app.route('/alltime/<filename>')
+def uploaded_file(filename):
+  return render_template('index.html', filename=filename)
+>>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
 
 #def file_into_html(file):
     #return render_template('landing.html', file=send_from_directory(app.config['UPLOAD_FOLDER'], filename))
 
+<<<<<<< HEAD
 @app.route('/weekly')
 def test2():
     return render_template('bar_index.html')
+=======
+@app.route('/alltime')
+def test():
+    global fname
+    return render_template('index.html', filename=fname)
+
+@app.route('/weekly')
+def test2():
+    global fname
+    return render_template('bar_index.html', filename=fname)
+>>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -61,7 +88,12 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(
+<<<<<<< HEAD
         host='0.0.0.0',
         port=int("8000"),
+=======
+        #host='0.0.0.0',
+        #port=int("8000"),
+>>>>>>> 38f493dbae6b0ceada4fe4317511c6e9e8c1d9bc
         debug = True
     )
